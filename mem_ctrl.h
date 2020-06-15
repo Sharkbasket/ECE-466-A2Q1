@@ -9,11 +9,12 @@ SC_MODULE(mem_ctrl)
     enum command : sc_uint<2> {RDBYT, RDBLK, WTBYT, WTBLK};
     
     // Ports
-    sc_in<bool> reset, new_comm, complete;
+    sc_in<bool> new_comm, reset;
     sc_in<command> comm;
     sc_in< sc_uint<8> > addr;
-    sc_inout< sc_lv<8> > data;
     sc_in_clk clk;
+    sc_inout< sc_lv<8> > data;
+    sc_out<bool> complete;
     
     // 256-byte memory space
     sc_lv<8> memory[256];

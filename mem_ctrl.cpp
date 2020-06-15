@@ -88,6 +88,10 @@ void mem_process()
                     memory[addr_s + i] = data_s;
                 }
                 break;
+            
+            default:
+                std::cout << "Unrecognized command: " << comm_s << endl;
+                break;
         } // end switch
         
         // Assert complete and wait for handshake (de-assertion of new_comm)
