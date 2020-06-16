@@ -26,6 +26,7 @@ SC_MODULE(mem_testbench)
     void read_block(sc_uint<8> r_addr);
     void write_byte(sc_uint<8> w_addr, sc_uint<8> w_data);
     void write_block(sc_uint<8> w_addr, sc_uint<8> w_data);
+    void check_release();
 };
 
 #endif
