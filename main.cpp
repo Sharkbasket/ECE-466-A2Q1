@@ -30,7 +30,20 @@ int sc_main(int argc, char* argv[])
     tb.new_comm(new_comm);
     tb.reset(reset);
     
+    // Set up waveform tracing
+    sc_trace_file* tf = sc_create_vcd_trace_file("mem_ctrl_traces");
+    tf->set_time_unit(1, SC_NS);
+    sc_trace(tf, addr, "addr");
+    sc_trace(tf, clk, "clk");
+    sc_trace(tf, comm, "comm");
+    sc_trace(tf, complete, "complete");
+    sc_trace(tf, data, "data");
+    sc_trace(tf, new_comm, "new_comm");
+    sc_trace(tf, reset, "reset");
+    
     sc_start();
+    
+    sc_close_vcd_trace_file(tf);
     
     return 0;
 }
