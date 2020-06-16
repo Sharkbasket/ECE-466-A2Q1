@@ -7,7 +7,7 @@ SC_HAS_PROCESS(mem_ctrl);
 mem_ctrl::mem_ctrl(sc_module_name n) : sc_module(n)
 {
     SC_CTHREAD(mem_process, clk.pos());
-    reset_signal_is(reset);
+    reset_signal_is(reset, true);
 }
 
 

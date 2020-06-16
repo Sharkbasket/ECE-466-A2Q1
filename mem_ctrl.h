@@ -7,7 +7,7 @@
 SC_MODULE(mem_ctrl)
 {
     // Memory commands
-    enum command : sc_uint<2>
+    enum command
     {
         RDBYT,
         RDBLK,
