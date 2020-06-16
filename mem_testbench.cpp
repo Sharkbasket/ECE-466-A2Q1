@@ -146,7 +146,7 @@ void mem_testbench::write_block(sc_uint<8> w_data, sc_uint<8> w_addr)
 }
 
 // Check if the memory has released the data bus
-void check_release()
+void mem_testbench::check_release()
 {
     wait();
     if (data->read() == Z)
