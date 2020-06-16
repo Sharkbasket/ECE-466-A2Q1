@@ -15,7 +15,7 @@ mem_ctrl::mem_ctrl(sc_module_name n) : sc_module(n)
 void mem_ctrl::mem_process()
 {
     // Variables to store values sampled from input ports
-    command comm_s;
+    sc_uint<2> comm_s;
     sc_uint<8> addr_s;
     sc_uint<8> data_s;
     

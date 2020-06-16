@@ -7,7 +7,7 @@ int sc_main(int argc, char* argv[])
     // Channels
     sc_clock clk("clk", 10.0, SC_NS);
     sc_signal<bool> reset, new_comm, complete;
-    sc_signal<mem_ctrl::command> comm;
+    sc_signal< sc_uint<2> > comm;
     sc_signal< sc_uint<8> > addr;
     sc_signal_rv<8> data;
     

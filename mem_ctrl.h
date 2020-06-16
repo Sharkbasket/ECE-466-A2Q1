@@ -17,7 +17,7 @@ SC_MODULE(mem_ctrl)
     
     // Ports
     sc_in<bool> new_comm, reset;
-    sc_in<command> comm;
+    sc_in< sc_uint<2> > comm;
     sc_in< sc_uint<8> > addr;
     sc_in_clk clk;
     sc_inout< sc_lv<8> > data;
