@@ -2,11 +2,18 @@
 #define MEM_CTRL_H
 
 #include "systemc.h"
+#include <iostream>
 
 SC_MODULE(mem_ctrl)
 {
     // Memory commands
-    enum command : sc_uint<2> {RDBYT, RDBLK, WTBYT, WTBLK};
+    enum command : sc_uint<2>
+    {
+        RDBYT,
+        RDBLK,
+        WRBYT,
+        WRBLK
+    };
     
     // Ports
     sc_in<bool> new_comm, reset;
@@ -16,14 +23,14 @@ SC_MODULE(mem_ctrl)
     sc_inout< sc_lv<8> > data;
     sc_out<bool> complete;
     
-    // 256-byte memory space
-    sc_lv<8> memory[256];
+    // Constructor
+    mem_ctrl(sc_module_name);
     
     // Processes
     void mem_process();
     
-    // Constructor
-    mem_ctrl(sc_module_name);
+    // 256-byte memory space
+    sc_lv<8> memory[256];
 };
 
 #endif

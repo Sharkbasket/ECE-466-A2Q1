@@ -3,6 +3,7 @@
 
 #include "systemc.h"
 #include "mem_ctrl.h"
+#include <iostream>
 
 SC_MODULE(mem_testbench)
 {
@@ -14,11 +15,17 @@ SC_MODULE(mem_testbench)
     sc_out<mem_ctrl::command> comm;
     sc_out< sc_uint<8> > addr;
     
+    // Constructor
+    mem_testbench(sc_module_name);
+    
     // Processes
     void mem_test();
     
-    // Constructor
-    mem_testbench(sc_module_name);
+    // Functions
+    void read_byte(sc_uint<8> r_addr);
+    void read_block(sc_uint<8> r_addr);
+    void write_byte(sc_uint<8> w_addr, sc_uint<8> w_data);
+    void write_block(sc_uint<8> w_addr, sc_uint<8> w_data);
 };
 
 #endif
